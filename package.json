@@ -1,0 +1,15 @@
+{
+    "name": "storybook",
+    "version": "1.0.0",
+    "description": "Story book ",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "isma",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.2",
+        "mongoose": "^4.12.4"
+    }
+}
