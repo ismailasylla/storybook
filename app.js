@@ -13,9 +13,9 @@ require('./config/passport')(passport);
 
 
 //load routes 
-//load routes 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const stories = require('./routes/stories');
 
 //load keys
 const keys = require('./config/keys')
@@ -64,6 +64,7 @@ app.use((req, res, next) => {
 //Use Routes
 app.use('/', index);
 app.use('/auth', auth);
+app.use('/stories', stories);
 
 
 
