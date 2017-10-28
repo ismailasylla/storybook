@@ -8,18 +8,24 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 
     <title>StoryBook</title>
 </head>
 
 <body>
     {{> _header}}
+    {{#if user}}
+        {{> _add-btn}}
+    {{/if}}
     <main>
         <div class="container">
             {{{body}}}
         </div>
-
     </main>
+
+    {{> _footer}}
 
 
 
@@ -29,7 +35,12 @@
     <script>
         $(document).ready(() => {
             $('.button-collapse').sideNav();
+            $('select').material_select();
         });
+
+        CKEDITOR.replace( 'body', {
+            plugins: 'wysiwygarea,toolbar,basicstyles,image,link'
+        } );
     </script>
 </body>
 

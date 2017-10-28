@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
@@ -58,6 +59,9 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 });
+
+//set static folder 
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 
