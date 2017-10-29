@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
+const methodeOverride = require('method-override');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -41,8 +42,13 @@ mongoose.connect(keys.mongoURI, {
 
 const app = express();
 
+//Body Parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+//Method Overrride Middleware
+app.use(methodeOverride('_method'));
+
 
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
