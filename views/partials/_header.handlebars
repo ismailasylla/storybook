@@ -8,6 +8,7 @@
             {{!-- Right nav --}}
             <ul class="right hide-on-small-only">
                 {{#if user}}
+                <li><img src="{{user.image}}" alt="" class="circle responsive-img" width="40px" style="margin-top:13px"></li>
                     <li><a href="/dasboard">Welcome {{user.firstName}}</a></li>
                     <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                 {{else}}
