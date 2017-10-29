@@ -22,7 +22,13 @@ const auth = require('./routes/auth');
 const stories = require('./routes/stories');
 
 //load keys
-const keys = require('./config/keys')
+const keys = require('./config/keys');
+
+//handlebars helpers
+const {
+    truncate,
+    stripTags
+} = require('./helpers/hbs');
 
 //Map Global promises
 mongoose.Promise = global.Promise;
@@ -43,8 +49,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-//Handlebars 
+//Handlebars Middleware 
 app.engine('handlebars', exphbs({
+    helpers: {
+        truncate: truncate,
+        stripTags: stripTags
+    },
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars')
