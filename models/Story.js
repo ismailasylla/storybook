@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//create User Schema 
+// Create Shema
 const StorySchema = new Schema({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     body: {
         type: String,
@@ -41,10 +41,7 @@ const StorySchema = new Schema({
         type: Date,
         default: Date.now
     }
-
 });
 
-
-//create collection and add schema 
-
+// Create collection and add schema
 mongoose.model('stories', StorySchema, 'stories');
